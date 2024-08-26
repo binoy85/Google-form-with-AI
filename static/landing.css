@@ -1,0 +1,225 @@
+/* General styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+.header {
+    background-color: #7064F1;
+    color: white;
+    padding: 10px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header nav a {
+    position: relative; /* Required for pseudo-element positioning */
+    display: inline-block; /* Keeps the element inline for proper positioning */
+    color: white; /* Base text color */
+    text-decoration: none; /* Remove default underline */
+    margin-left: 20px; /* Add left margin */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.header nav a::after{
+    content: ''; /* No content, we just need the element */
+    position: absolute; /* Position it absolutely relative to the text */
+    left: 0; /* Start from the left edge */
+    bottom: -2px; /* Slightly below the text */
+    width: 0; /* Start with zero width */
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor; /* Use the text color for the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+.header nav a:hover::after {
+    width: 100%;
+
+}
+
+/* Hero section styles */
+.hero {
+    background: linear-gradient(180deg, #472EE8 10%, #7064F1 70%,#9892F6 100%);
+    color: white;
+    padding: 60px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+}
+
+.hero .text {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.hero .text h1 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.hero .text p {
+    font-size: 1.2em;
+    margin-bottom: 80px;
+}
+
+.hero .btn-primary {
+    background-color: #F17064;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.hero .image {
+    flex: 1;
+    text-align: center;
+}
+
+.hero .image img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Features section styles */
+.features {
+    background-color: #F0F2FF;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.features .features-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.features .feature {
+    flex: 0 0 20%;
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.features .feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.features .icon {
+    margin-bottom: 20px;
+}
+
+.features .icon img {
+    max-width: 100px;
+}
+
+.features .feature h3 {
+    color: #32CD32;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.features .feature p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+/* Call-to-action section styles */
+.call-to-action {
+    background-color: #E6E6FA;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.call-to-action h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.call-to-action p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.call-to-action .btn-primary {
+    background-color: #F17064;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.btn-primary:hover {
+    background-color: #CD4330; /* Darker blue on hover */
+}
+/* Footer styles */
+.footer {
+    background-color: #7064F1;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a{
+    position: relative; /* Required for pseudo-element positioning */
+    display: inline-block; /* Keeps the element inline for proper positioning */
+    color: white; /* Base text color */
+    text-decoration: none; /* Remove default underline */
+    margin-left: 20px; /* Add left margin */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.footer a::after{
+    content: ''; /* No content, we just need the element */
+    position: absolute; /* Position it absolutely relative to the text */
+    left: 0; /* Start from the left edge */
+    bottom: -2px; /* Slightly below the text */
+    width: 0; /* Start with zero width */
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor; /* Use the text color for the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+.footer a:hover::after {
+    width: 100%;
+
+}
+.footer p {
+    margin-top: 10px;
+    font-size: 0.9em;
+}

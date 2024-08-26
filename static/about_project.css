@@ -1,0 +1,145 @@
+/* about_project.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #ECECED;
+    color: #333;
+}
+
+/* Header styles */
+.header1 {
+    background-color: #7064F1;
+    color: white;
+    padding: 10px 0;
+}
+
+.header1 .another_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.header1 .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header1 .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header1 nav a {
+    position: relative; /* Required for pseudo-element positioning */
+    display: inline-block; /* Keeps the element inline for proper positioning */
+    color: white; /* Base text color */
+    text-decoration: none; /* Remove default underline */
+    margin-left: 20px; /* Add left margin */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.header1 nav a::after{
+    content: ''; /* No content, we just need the element */
+    position: absolute; /* Position it absolutely relative to the text */
+    left: 0; /* Start from the left edge */
+    bottom: -2px; /* Slightly below the text */
+    width: 0; /* Start with zero width */
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor; /* Use the text color for the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+.header1 nav a:hover::after {
+    width: 100%;
+
+}
+
+
+
+.about-project {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-project section {
+    margin-bottom: 40px;
+}
+
+.about-project h1, .about-project h2 {
+    color: #2c3e50;
+}
+
+.about-project p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.about-project img.full-width {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.about-project a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.about-project a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+.footer {
+    background-color: #7064F1;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a{
+    position: relative; /* Required for pseudo-element positioning */
+    display: inline-block; /* Keeps the element inline for proper positioning */
+    color: white; /* Base text color */
+    text-decoration: none; /* Remove default underline */
+    margin-left: 20px; /* Add left margin */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.footer a::after{
+    content: ''; /* No content, we just need the element */
+    position: absolute; /* Position it absolutely relative to the text */
+    left: 0; /* Start from the left edge */
+    bottom: -2px; /* Slightly below the text */
+    width: 0; /* Start with zero width */
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor; /* Use the text color for the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+.footer a:hover::after {
+    width: 100%;
+
+}
+
+.footer p {
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+#challenge_img_div{
+    width: fit-content;
+    margin: auto;
+}
+#challenges_img{
+    width: 100%;
+    margin: auto;
+}
+
