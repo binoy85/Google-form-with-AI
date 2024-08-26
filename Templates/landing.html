@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizQueue</title>
+    <link rel="stylesheet" href="static\landing.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href=""><img src="static\Logo (1).png" alt="QuizQueue Logo"></a>
+                
+            </div>
+            <nav>
+                <a href="/about_us">About us</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="text">
+                <h1>Create Quizzes Instantly!</h1>
+                <p>Save time and effort with QuizQueue. Generate customized quizzes and Google Forms in just a few clicks. Perfect for educators, trainers, and anyone who needs quick, high-quality quizzes.</p>
+                <form action="{{ url_for('index') }}">
+                <button class="btn-primary">Create Quiz</button>
+            </form>
+            </div>
+            <div class="image">
+                <img src="static\hero section image.png" alt="Quiz Image">
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose QuizQueue?</h2>
+            <div class="features-list">
+                <div class="feature">
+                    <div class="icon">
+                        <img src="static\quiz 1.png" alt="Effortless Icon">
+                    </div>
+                    <h3>Effortless Quiz Creation</h3>
+                    <p>No more brainstorming questions. Simply enter your topic and the number of questions, and let QuizQueue do the rest.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">
+                        <img src="static\image 1.png" alt="Instant Icon">
+                    </div>
+                    <h3>Instant Google Forms</h3>
+                    <p>Automatically generate fully formatted Google Forms, ready to use and share with your audience.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">
+                        <img src="static\Group 7.png" alt="Customizable Icon">
+                    </div>
+                    <h3>Customizable and Flexible</h3>
+                    <p>Tailor quizzes to your specific needs, whether for teaching, training, or fun.</p>
+                </div>
+                <div class="feature">
+                    <div class="icon">
+                        <img src="static\time 1.png" alt="Time-Saving Icon">
+                    </div>
+                    <h3>Time-Saving</h3>
+                    <p>Streamline your workflow and focus on what matters most – teaching and engaging with your audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="call-to-action">
+        <div class="container">
+            <h2>Get Started Now!</h2>
+            <p>Join QuizQueue today and revolutionize the way you create quizzes. Click below to start generating your custom quizzes and Google Forms effortlessly!</p>
+            <form action="{{ url_for('index') }}">
+            <button class="btn-primary">Try now</button>
+        </form>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <a href="/about_us">About us</a>
+            <a href="/about_project">About project</a>
+            <p>© 2024 QuizQueue. All rights reserved.</p>
+            <a href="/privacy_policy">Privacy policy</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizQueue</title>
+    <link rel="stylesheet" href="static/index.css">
+    <link rel="stylesheet" href="https://fonts.google.com/share?selection.family=Inter:wght@100..900">
+</head>
+<body>
+    <div id="overlay" class="overlay" style="display: none;"></div>
+    <header class="header1">
+        <div class="another_container">
+            <div class="logo">
+                <a href="/"><img src="static/Logo (1).png" alt="QuizQueue Logo"></a>
+            </div>
+            <nav>
+                <a href="/about_us">About us</a>
+            </nav>
+        </div>
+    </header>
+    <div class="header">
+        <h1>Generate quiz with QuizQueue</h1>
+    </div>
+    <div class="container">
+        <form id="quizForm">
+            <div class="form-group">
+                <label for="topics">What topics would you like the quiz questions to cover?</label>
+                <textarea id="topics" name="topics" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="num_questions">How many questions would you like to include in the quiz?[upto 35]</label>
+                <input type="number" id="num_questions" name="num_questions" required>
+            </div>
+            <div class="form-group">
+                <label for="doc_title">What title would you like for the Google Document containing the quiz questions?</label>
+                <input type="text" id="doc_title" name="doc_title" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="form_title">What title would you like for the Google Form?</label>
+                <input type="text" id="form_title" name="form_title" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="form_description">Please enter a description for the Google Form.</label>
+                <textarea id="form_description" name="form_description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="marks">Marks for each question:</label>
+                <input type="number" id="marks" name="marks" required>
+            </div>
+            <div class="form-group">
+                <label for="question_level">Select Question Level:</label>
+                <select id="question_level" name="question_level" required>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button type="button" onclick="submitForm()">Generate</button>
+            </div>
+        </form>
+        <div class="result" id="result"></div>
+        <div class="generated-questions" id="generatedQuestions" style="display: none;">
+            <h3>We have provided a few additional questions to give you the flexibility to select the ones you prefer. Choose the questions you find most suitable for your Google Form.</h3>
+            <form id="selectQuestionsForm">
+                <div id="questionsList"></div>
+
+                <div class="button-group">
+                    <form action="{{ url_for('index') }}">
+                        <button id = "reset_button" class="btn-primary">Reset</button>
+                    </form>
+                    <button type="button" onclick="createGoogleForm()">Create Form</button>
+                </div>
+
+            </form>
+        </div>
+        <div id="formLinkContainer" style="display: none; text-align: center; margin-top: 20px;">
+            <h3>Google Form Created!</h3>
+            <p><a id="formLink" href="#" target="_blank">Click here to view your form</a></p>
+            
+        </div>
+        
+
+        <div id="loading" style="display: none;">
+            <img src="static/load-35_256.gif" alt="Loading" width="200">
+        </div>
+    </div>
+
+    <script>
+        
+        function showLoading() {
+        // Show the loading indicator and overlay
+        document.getElementById('loading').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function hideLoading() {
+        // Hide the loading indicator and overlay
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function submitForm() {
+        showLoading();
+
+        var formData = new FormData(document.getElementById('quizForm'));
+        fetch('/home', {
+            method: 'POST',
+            body: formData
+        }).then(response => response.json())
+          .then(data => {
+              hideLoading();
+
+              if (data.error) {
+                  alert('Error: ' + data.error);
+              } else {
+                  let resultDiv = document.getElementById('result');
+                  resultDiv.className = 'result';
+                  resultDiv.innerHTML = `
+                      <h3>Generated Quiz Questions</h3>
+                      <p><strong>Topics:</strong> ${data.user_data.topics}</p>
+                      <p><strong>Number of Questions:</strong> ${data.user_data.num_questions}</p>
+                      <p><strong>Google Document Title:</strong> ${data.user_data.doc_title}</p>
+                      <p><strong>Google Form Title:</strong> ${data.user_data.form_title}</p>
+                      <p><strong>Google Form Description:</strong> ${data.user_data.form_description}</p>
+                  `;
+                  displayQuestions(data.generated_questions);
+              }
+          }).catch(error => {
+              hideLoading();
+              console.error('Error:', error);
+          });
+    }
+
+    function createGoogleForm() {
+    showLoading(); // Show the loading indicator and overlay
+
+    var selectedQuestions = [];
+    var checkboxes = document.querySelectorAll('input[name="questions"]:checked');
+    checkboxes.forEach((checkbox) => {
+        selectedQuestions.push(parseInt(checkbox.value));
+    });
+
+    fetch('/create_form', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({selected_questions: selectedQuestions})
+    }).then(response => {
+        if (!response.ok) { // Check if response status is not OK
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        hideLoading(); // Hide the loading indicator and overlay
+
+        if (data.error) { // Check for errors in the response
+            alert('Error: ' + data.error);
+        } else {
+            // Show the form link container
+            document.getElementById('formLinkContainer').style.display = 'block';
+            document.getElementById('formLinkContainer').innerHTML = `
+                <h3>Google Form Created!</h3>
+                <p><a id="formLink" href="${data.form_link}" target="_blank">Click here to view your form</a></p>
+            `;
+        }
+    })
+    .catch(error => {
+        hideLoading(); // Hide the loading indicator and overlay
+        console.error('Error:', error);
+        alert('Error: ' + error.message); // Display the error message
+    });
+}
+
+
+    function toggleSelectAll(selectAllCheckbox) {
+        let checkboxes = document.querySelectorAll('input[name="questions"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    }
+
+        function displayQuestions(questions) {
+        let questionsList = document.getElementById('questionsList');
+        questionsList.innerHTML = '';
+
+        // Add the "Select All" checkbox
+        let selectAllDiv = document.createElement('div');
+        selectAllDiv.className = 'select-all-item'; // Add a class for styling
+        selectAllDiv.innerHTML = `
+            <input type="checkbox" id="selectAll" name="selectAll" onchange="toggleSelectAll(this)">
+            <label for="selectAll"><strong>Select All Questions</strong></label>
+        `;
+        questionsList.appendChild(selectAllDiv);
+
+        // Add each question with a checkbox
+        questions.forEach((question, index) => {
+            let div = document.createElement('div');
+            div.className = 'question-item'; // Add the class for styling each question item
+            div.innerHTML = `
+                <input type="checkbox" name="questions" value="${index}">
+                <strong>Question ${index + 1}:</strong> ${question.question}<br>
+                <p><strong>A)</strong> ${question.Option1}</p>
+                <p><strong>B)</strong> ${question.Option2}</p>
+                <p><strong>C)</strong> ${question.Option3}</p>
+                <p><strong>D)</strong> ${question.Option4}</p>
+                <p><strong>Answer:</strong> ${question.answer}</p>
+            `;
+            questionsList.appendChild(div);
+        });
+        
+        document.getElementById('generatedQuestions').style.display = 'block';
+    }
+
+    function toggleSelectAll(selectAllCheckbox) {
+        let checkboxes = document.querySelectorAll('input[name="questions"]');
+        checkboxes.forEach((checkbox) => {
+            checkbox.checked = selectAllCheckbox.checked;
+        });
+    }
+
+    </script>
+</body>
+</html>

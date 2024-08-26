@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - QuizQueue</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ECECED;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #4A90E2;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-top: 20px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+a {
+    color: #4A90E2;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+/* Header styles */
+.header {
+    background-color: #7064F1;
+    color: white;
+    padding: 10px 0;
+}
+
+.header .another_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.header .logo {
+    display: flex;
+    align-items: center;
+}
+
+.header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header nav a {
+    position: relative; /* Required for pseudo-element positioning */
+    display: inline-block; /* Keeps the element inline for proper positioning */
+    color: white; /* Base text color */
+    text-decoration: none; /* Remove default underline */
+    margin-left: 20px; /* Add left margin */
+    font-weight: bold; /* Make text bold */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.header nav a::after{
+    content: ''; /* No content, we just need the element */
+    position: absolute; /* Position it absolutely relative to the text */
+    left: 0; /* Start from the left edge */
+    bottom: -2px; /* Slightly below the text */
+    width: 0; /* Start with zero width */
+    height: 2px; /* Thickness of the underline */
+    background-color: currentColor; /* Use the text color for the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+.header nav a:hover::after {
+    width: 100%;
+
+}
+
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="another_container">
+            <div class="logo">
+                <a href="/"><img src="static\Logo (1).png" alt="QuizQueue Logo"></a>
+            </div>
+            <nav>
+                <a href="/about_us">About us</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Privacy Policy</h1>
+        <p>Effective Date: June 4, 2024</p>
+        
+        <p>At QuizQueue, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we handle any information you provide to us through our website.</p>
+        
+        <h2>Information We Do Not Collect</h2>
+        <p>QuizQueue does not collect, store, or share any personal data. Our service is designed to generate quiz questions and create forms based on user inputs without retaining any personal information.</p>
+        
+        <h2>Use of Cookies</h2>
+        <p>Our website does not use cookies to track your activities. However, third-party services linked from our site, such as Google Forms, may use cookies. Please refer to their privacy policies for more information.</p>
+        
+        <h2>Third-Party Links</h2>
+        <p>QuizQueue may contain links to other websites. We are not responsible for the privacy practices or the content of these external sites. We encourage you to read the privacy policies of any website you visit.</p>
+        
+        <h2>Data Security</h2>
+        <p>Although we do not collect personal data, we are committed to protecting the integrity of our service and ensuring a secure environment for our users.</p>
+        
+        <h2>Changes to This Privacy Policy</h2>
+        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately upon posting.</p>
+        
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us:</p>
+        <ul>
+            <li>By email: support@quizqueue.com</li>
+        </ul>
+    </div>
+</body>
+</html>

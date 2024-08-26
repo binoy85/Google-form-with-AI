@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Project - QuizQueue</title>
+    <link rel="stylesheet" href="static/about_project.css">
+</head>
+<body>
+    <header class="header1">
+        <div class="another_container">
+            <div class="logo">
+                <a href="/"><img src="static/Logo (1).png" alt="QuizQueue Logo"></a>
+            </div>
+            <nav>
+                <a href="/about_us">About us</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="about-project">
+        <section class="intro">
+            <h1>About the Project</h1>
+            <p>We all used Google Forms many times before. Nowadays, everything is online, from college tests to shopping. Evaluating students through quizzes on Google Forms is effective as the marks are stored there. However, creating quizzes is time-consuming. Many AI tools exist to create quizzes but aren't as efficient or convenient as popular tools like ChatGPT or Google Gemini. This inspired us to create this application.</p>
+            <img src="static\Group 4.png" alt="Google Forms Quiz" class="full-width">
+        </section>
+
+        <section class="development-stages">
+            <h2>Development Stages</h2>
+            <p>Initially, we built a command-line application using the Google Forms API with Python. We provided details like form title, description, and questions manually, often generating these questions using ChatGPT. In the next stage, we integrated Google Gemini to generate questions programmatically. Eventually, we developed web pages using Flask, making the application more user-friendly.</p>
+            <p><strong>Stage 1:</strong> Prototype 1 - In this initial stage, we created a basic version of our application using only the Google Form API. Users had to manually input or paste questions and answers into the command prompt. While functional, this process was time-consuming as each question had to be added individually.
+            </p>
+            <img src="static\cmd.jpg" alt="Development Stages" class="full-width">
+            <p><strong>Stage 2:</strong> Prototype 2 - Building upon the first prototype, we introduced Google Gemini, an AI tool that automatically generates questions based on prompts. This integration allowed for the automatic generation of questions, reducing the manual effort required. However, the interface remained the same, with users still interacting through the command prompt.</p>
+            <p><strong>Stage 3:</strong> Design Implementation - At this stage, we focused on enhancing the user experience by designing the application's interface using Figma. This step involved creating visual mockups and wireframes to improve the overall aesthetics and usability of the application.</p>
+            <img src="static\design phase.png" alt="Development Stages" class="full-width">
+            <p><strong>Stage 4:</strong> Web Interface Development - The final stage involved transforming our command-line application into a user-friendly web page. We revamped the interface to provide a more intuitive and visually appealing experience for users. While implementing the web interface, we made adjustments to ensure consistency between the design and the actual application, resulting in a seamless user experience.</p>
+        </section>
+
+        <section class="challenges">
+            <h2>Challenges Faced</h2>
+            <p>We encountered various challenges, with the main issue being consistency. AI-generated questions were not consistently accurate. After researching, we discovered that making the responses in JSON format improved consistency. This resource helped us significantly:<a href="https://hasanaboulhasan.medium.com/how-to-get-consistent-json-from-google-gemini-with-practical-example-48612ed1ab40" target="_blank">Resource Link</a>
+                . However, the response isn't 100% consistent, particularly with the number of generated questions.</p>
+                <div id="challenge_img_div"><img src="static\inconsistent_ai.webp" alt="Challenges" id = "challenges_img" class="full-width"></div>
+            
+        </section>
+
+        <section class="workflow">
+            <h2>Project Workflow</h2>
+            <p>Our project workflow involves the following steps:</p>
+            <ul>
+                <li>Input the topics and parameters for the quiz.</li>
+                <li>Generate questions using AI tools.</li>
+                <li>Display the generated questions for user selection.</li>
+                <li>Create a Google Form with the selected questions.</li>
+                <li>Provide a link to the generated Google Form.</li>
+            </ul>
+            <img src="static\Group 10.png" alt="Project Workflow" class="full-width">
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <a href="/about_us">About us</a>
+            <a href="/about_project">About project</a>
+            <p>© 2024 QuizQueue. All rights reserved.</p>
+            <a href="/privacy_policy">Privacy policy</a>
+        </div>
+    </footer>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

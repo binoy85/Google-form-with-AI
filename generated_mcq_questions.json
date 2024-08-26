@@ -1,0 +1,66 @@
+[
+  {
+    "question": "Which of the following is NOT a keyword in Java?",
+    "Option1": "public",
+    "Option2": "int",
+    "Option3": "class",
+    "Option4": "None of the above",
+    "answer": "None of the above"
+  },
+  {
+    "question": "Which of the following is the correct syntax to create an object in Java?",
+    "Option1": "ClassName objectName = new ClassName();",
+    "Option2": "ObjectName ClassName = new ClassName();",
+    "Option3": "new ClassName objectName = ClassName();",
+    "Option4": "None of the above",
+    "answer": "ClassName objectName = new ClassName();"
+  },
+  {
+    "question": "Which of the following is NOT a primitive data type in Java?",
+    "Option1": "int",
+    "Option2": "boolean",
+    "Option3": "char",
+    "Option4": "String",
+    "answer": "String"
+  },
+  {
+    "question": "Which of the following is a valid variable name in Java?",
+    "Option1": "123abc",
+    "Option2": "abc123",
+    "Option3": "@abc",
+    "Option4": "*abc",
+    "answer": "abc123"
+  },
+  {
+    "question": "Which of the following is the purpose of the 'this' keyword in Java?",
+    "Option1": "To refer to the current object",
+    "Option2": "To refer to the superclass of the current object",
+    "Option3": "To refer to the constructor of the current object",
+    "Option4": "None of the above",
+    "answer": "To refer to the current object"
+  },
+  {
+    "question": "Which of the following is NOT an access modifier in Java?",
+    "Option1": "public",
+    "Option2": "private",
+    "Option3": "protected",
+    "Option4": "final",
+    "answer": "final"
+  },
+  {
+    "question": "Which of the following is the correct syntax to throw an exception in Java?",
+    "Option1": "throw new Exception();",
+    "Option2": "Exception throw new Exception();",
+    "Option3": "throw Exception new Exception();",
+    "Option4": "None of the above",
+    "answer": "throw new Exception();"
+  },
+  {
+    "question": "Which of the following is NOT a benefit of using Java?",
+    "Option1": "Platform independence",
+    "Option2": "Robustness",
+    "Option3": "Concurrency",
+    "Option4": "Ease of coding",
+    "answer": "Ease of coding"
+  }
+]
